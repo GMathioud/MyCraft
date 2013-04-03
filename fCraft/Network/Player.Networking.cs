@@ -1,4 +1,4 @@
-﻿// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
+// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -634,6 +634,8 @@ namespace fCraft {
                 Logger.Log( LogType.SuspiciousActivity,
                             "Banned player {0} tried to log in from {1}",
                             Name, IP );
+                // Announces to players with permission.Ban that a banned player tried to login.
+                Server.Players.Can(Permission.Ban).Message("&WBanned player {0} tried to login.", ClassyName);
 
                 string bannedMessage;
                 if( Info.BannedBy != null ) {
