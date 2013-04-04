@@ -1,4 +1,4 @@
-﻿/* Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
+/* Copyright 2009-2012 Matvei Stefarov <me@matvei.org>
  * 
  * Based, in part, on SmartIrc4net code. Original license is reproduced below.
  * 
@@ -253,17 +253,20 @@ namespace fCraft {
                                     if ( msg.Type == IRCMessageType.ChannelAction ) {
                                         Server.Message( "&i(IRC) * {0} {1}",
                                                         msg.Nick, processedMessage );
+                                        // Prints on console a message sent on IRC.
                                         Logger.Log(LogType.IRC, "[IRC] * {0} {1}",
                                                          msg.Nick, processedMessage);
                                     } else {
                                         Server.Message( "&i(IRC) {0}{1}: {2}",
                                                         msg.Nick, Color.White, processedMessage );
+                                        // Prints on console a message sent on IRC.
                                         Logger.Log(LogType.IRC, "[IRC] {0}: {1}",
                                                          msg.Nick, processedMessage);
                                     }
                                 } else if ( msg.Message.StartsWith( "#" ) ) {
                                     Server.Message( "&i(IRC) {0}{1}: {2}",
                                                     msg.Nick, Color.White, processedMessage.Substring( 1 ) );
+                                    // Prints on console a message sent on IRC.
                                     Logger.Log(LogType.IRC, "(IRC) {0}: {1}",
                                                      msg.Nick, processedMessage.Substring(1));
                                 }
@@ -277,6 +280,7 @@ namespace fCraft {
                         if ( ConfigKey.IRCBotAnnounceIRCJoins.Enabled() ) {
                             Server.Message( "&i(IRC) {0} joined {1}",
                                             msg.Nick, msg.Channel );
+                            // Prints on console a player that joined the IRC channel.
                             Logger.Log(LogType.IRC, "[IRC] {0} joined {1}",
                                 msg.Nick, msg.Channel);
                         }
@@ -293,6 +297,7 @@ namespace fCraft {
                             string kickMessage = ProcessMessageFromIRC( msg.Message );
                             Server.Message( "&i(IRC) {0} kicked {1} from {2} ({3})",
                                             msg.Nick, kicked, msg.Channel, kickMessage );
+                            // Prints on console a player that got kicked from the IRC channel.
                             Logger.Log(LogType.IRC, "[IRC] {0} kicked {1} from {2} ({3})",
                                 msg.Nick, kicked, msg.Channel, kickMessage);
                         }
@@ -305,6 +310,7 @@ namespace fCraft {
                         if ( ConfigKey.IRCBotAnnounceIRCJoins.Enabled() ) {
                             Server.Message( "&i(IRC) {0} left {1}",
                                             msg.Nick, msg.Channel );
+                            // Prints on console a player that left the IRC channel.
                             Logger.Log(LogType.IRC, "[IRC] {0} left {1}",
                                 msg.Nick, msg.Channel );
                         }
@@ -322,6 +328,7 @@ namespace fCraft {
                             if ( !ResponsibleForInputParsing ) return;
                             Server.Message( "&i(IRC) {0} is now known as {1}",
                                             msg.Nick, msg.Message );
+                            // Prints on console a player that changed his nick on the IRC channel.
                             Logger.Log(LogType.IRC, "[IRC] {0} is now known as {1}",
                                 msg.Nick, msg.Message);
                         }
