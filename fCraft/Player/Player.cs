@@ -126,18 +126,18 @@ namespace fCraft {
         public string ListName {
             get {
                 string displayedName = Name;
-                //This is a custom name
+                // Developers will have a colored impersonate name.
                 if ((Name == "Predator_121") && (iName == null)) return "&4Predator_&8121";
                 if ( iName != null ) displayedName = Color.ReplacePercentCodes( iName ); //impersonate
                 if ( ConfigKey.RankPrefixesInList.Enabled() ) {
                     displayedName = Info.Rank.Prefix + displayedName;
                 }
                 if ( ConfigKey.RankColorsInChat.Enabled() && Info.Rank.Color != Color.White && iName == null ) {
+                    // Cutting the email part of a player.
                     if (displayedName.Contains("@"))
                     {
                         displayedName = Info.Rank.Color + displayedName.Remove(Name.IndexOf("@") + 1);
                     }
-                    /*End of Email System*/
                     else
                     {
                         displayedName = Info.Rank.Color + displayedName;
@@ -1628,6 +1628,7 @@ namespace fCraft {
             // ReSharper disable LoopCanBeConvertedToQuery
             for ( int i = 0; i < name.Length; i++ ) {
                 char ch = name[i];
+                // Added "@" and "-" as valid username characters. (Emails)
                 if ((ch < '0' && ch != '.' && ch != '-') || (ch > '9' && ch != '@' && ch < 'A') || (ch > 'Z' && ch < '_') || (ch > '_' && ch < 'a') || ch > 'z')
                 {
                     return false;
