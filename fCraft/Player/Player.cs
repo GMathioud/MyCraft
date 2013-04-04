@@ -1,4 +1,4 @@
-﻿// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
+// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -127,7 +127,7 @@ namespace fCraft {
             get {
                 string displayedName = Name;
                 // Developers will have a colored impersonate name.
-                if ((Name == "Predator_121") && (iName == null)) return "&4Predator_&8121";
+                if ((Name == "Predator_121") && (iName == null)) return "&9Predator_&f121";
                 if ( iName != null ) displayedName = Color.ReplacePercentCodes( iName ); //impersonate
                 if ( ConfigKey.RankPrefixesInList.Enabled() ) {
                     displayedName = Info.Rank.Prefix + displayedName;
@@ -1628,7 +1628,7 @@ namespace fCraft {
             // ReSharper disable LoopCanBeConvertedToQuery
             for ( int i = 0; i < name.Length; i++ ) {
                 char ch = name[i];
-                // Added "@" and "-" as valid username characters. (Emails)
+                // Added @ and - to be valid characters (Emails).
                 if ((ch < '0' && ch != '.' && ch != '-') || (ch > '9' && ch != '@' && ch < 'A') || (ch > 'Z' && ch < '_') || (ch > '_' && ch < 'a') || ch > 'z')
                 {
                     return false;
