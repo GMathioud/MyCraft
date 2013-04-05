@@ -547,9 +547,9 @@ namespace fCraft {
                     TimeSpan idle = target.IdleTime;
                     if ( info.IsHidden ) {
                         if ( idle.TotalMinutes > 2 ) {
-                            //Now players can see the minecraft account username of a player. Useful for ranking email accounts!
                             if ( player.Can( Permission.ViewPlayerIPs ) ) {
                                 player.Message("About {0}&S: HIDDEN from {1} (idle {2})\n" +
+                                //Now players can see the minecraft account username of a player. Useful for ranking email accounts!
                                     "Username: {3}",
                                                 info.ClassyName,
                                                 info.LastIP,
