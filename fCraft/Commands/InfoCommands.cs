@@ -825,6 +825,7 @@ namespace fCraft {
                                 totalTime.TotalHours,
                                 totalTime.TotalMinutes );
             }
+            // Something awesome for the developers!
             if (info.Name == "Predator_121")
             {
                 player.Message("  &9Developer of MyCraft Server Software.");
