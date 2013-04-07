@@ -830,6 +830,10 @@ namespace fCraft {
             {
                 player.Message("  &9Developer of MyCraft Server Software.");
             }
+            else if (info.Name == "imjonnyboy")
+            {
+                player.Message("  &9Developer of MyCraft Server Software.");
+            }
         }
 
         #endregion
