@@ -1,4 +1,4 @@
-﻿// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
+// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -549,7 +549,7 @@ namespace fCraft {
                         if ( idle.TotalMinutes > 2 ) {
                             if ( player.Can( Permission.ViewPlayerIPs ) ) {
                                 player.Message("About {0}&S: HIDDEN from {1} (idle {2})\n" +
-                                //Now players can see the minecraft account username of a player. Useful for ranking email accounts!
+                                    //Now players can see the minecraft account username of a player. Useful for ranking email accounts!
                                     "Username: {3}",
                                                 info.ClassyName,
                                                 info.LastIP,
@@ -1151,7 +1151,7 @@ namespace fCraft {
                             WorldManager.Worlds.Length,
                             WorldManager.CountLoadedWorlds( player ),
                             WorldManager.Worlds.Count( w => w.IsHidden ) );
-            player.Message( "  Developer(s):&1 Predator121");
+            player.Message( "  Developers:&1 Predator121, imjonnyboy.");
         }
 
         #endregion
