@@ -41,6 +41,7 @@ namespace fCraft
             CommandManager.RegisterCommand(CdColors);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             CommandManager.RegisterCommand( CdReqs );
             CommandManager.RegisterCommand( CdList );
             CommandManager.RegisterCommand( CdWhoIs );
@@ -48,12 +49,17 @@ namespace fCraft
             //CommandManager.CommandCalled += CommandCalledHandler;
             /*CommandManager.RegisterCommand(CdDevs);*/
 =======
+=======
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
             CommandManager.RegisterCommand(CdReqs);
             CommandManager.RegisterCommand(CdList);
             CommandManager.RegisterCommand(CdWhoIs);
             CommandManager.RegisterCommand(CdLastCMD);
             CommandManager.CommandCalled += CommandCalledHandler;
             CommandManager.RegisterCommand(CdDevs);
+<<<<<<< HEAD
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
+=======
 >>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
 
 #if DEBUG_SCHEDULER
@@ -431,12 +437,21 @@ namespace fCraft
                 if (sectionList == null)
                 {
                     player.Message("There are no requirement sections defined.");
+<<<<<<< HEAD
                 }
                 else
                 {
                     player.Message("No requirement section defined for \"{0}\". Available sections: {1}",
                                     sectionName, sectionList.JoinToString());
                 }
+=======
+                }
+                else
+                {
+                    player.Message("No requirement section defined for \"{0}\". Available sections: {1}",
+                                    sectionName, sectionList.JoinToString());
+                }
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
             }
             else
             {
@@ -707,6 +722,7 @@ namespace fCraft
                             {
                                 player.Message("About {0}&S: HIDDEN from {1} (idle {2})\n" +
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     //Now players can see the minecraft account username of a player. Useful for ranking email accounts!
                                     "Username: {3} ({4})",
                                                 info.ClassyName,
@@ -720,18 +736,31 @@ namespace fCraft
                                                 info.ClassyName,
                                                 info.LastIP,
                                                 idle.ToMiniString(),
+=======
+                                    "Username: {3}",
+                                                info.ClassyName,
+                                                info.LastIP,
+                                                idle.ToMiniString(),
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
                                                 info.Name);
                             }
                             else
                             {
+<<<<<<< HEAD
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
+=======
 >>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
                                 player.Message("About {0}&S: HIDDEN (idle {1})\n" +
                                     "Username: {2} ({3})",
                                                 info.ClassyName,
                                                 idle.ToMiniString(),
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 info.Name
                                                 /*HasPaidResponseFromServer*/ );
+=======
+                                                info.Name);
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
 =======
                                                 info.Name);
 >>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
@@ -745,6 +774,7 @@ namespace fCraft
                                     "Username: {2} ({3})",
                                                 info.ClassyName,
                                                 info.LastIP,
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                 info.Name
                                                 /*HasPaidResponseFromServer*/ );
@@ -849,6 +879,60 @@ namespace fCraft
                             }
                         }
                     }
+=======
+                                                info.Name);
+                            }
+                            else
+                            {
+                                player.Message("About {0}&S: HIDDEN.\n" +
+                                    "Username: {1}",
+                                                info.ClassyName,
+                                                info.Name);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (idle.TotalMinutes > 1)
+                        {
+                            if (player.Can(Permission.ViewPlayerIPs))
+                            {
+                                player.Message("About {0}&S: Online now from {1} (idle {2})\n" +
+                                    "Username: {3}",
+                                                info.ClassyName,
+                                                info.LastIP,
+                                                idle.ToMiniString(),
+                                                info.Name);
+                            }
+                            else
+                            {
+                                player.Message("About {0}&S: Online now (idle {1})\n" +
+                                    "Username: {2}",
+                                                info.ClassyName,
+                                                idle.ToMiniString(),
+                                                info.Name);
+                            }
+                        }
+                        else
+                        {
+                            if (player.Can(Permission.ViewPlayerIPs))
+                            {
+                                player.Message("About {0}&S: Online now from {1}\n" +
+                                    "Username: {2}",
+                                                info.ClassyName,
+                                                info.LastIP,
+                                                info.Name);
+                            }
+                            else
+                            {
+                                player.Message("About {0}&S: Online now.\n" +
+                                    "Username: {1}",
+                                                info.ClassyName,
+                                                info.Name);
+                            }
+                        }
+                    }
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
                 }
                 else
                 {
@@ -863,6 +947,7 @@ namespace fCraft
                                             info.TimeSinceLastSeen.ToMiniString(),
                                             info.LastIP,
                                             info.LeaveReason,
+<<<<<<< HEAD
 <<<<<<< HEAD
                                             info.Name
                                             /*HasPaidResponseFromServer*/ );
@@ -913,6 +998,29 @@ namespace fCraft
                                             info.ClassyName,
                                             info.TimeSinceLastSeen.ToMiniString(),
                                             info.LeaveReason,
+=======
+                                            info.Name);
+                        }
+                        else
+                        {
+                            player.Message("About {0}&S: Last seen {1} ago from {2}.\n" +
+                                "Username: {3}",
+                                            info.ClassyName,
+                                            info.TimeSinceLastSeen.ToMiniString(),
+                                            info.LastIP,
+                                            info.Name);
+                        }
+                    }
+                    else
+                    {
+                        if (info.LeaveReason != LeaveReason.Unknown)
+                        {
+                            player.Message("About {0}&S: Last seen {1} ago ({2}).\n" +
+                                "Username: {3}",
+                                            info.ClassyName,
+                                            info.TimeSinceLastSeen.ToMiniString(),
+                                            info.LeaveReason,
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
                                             info.Name);
                         }
                         else
@@ -922,6 +1030,9 @@ namespace fCraft
                                             info.ClassyName,
                                             info.TimeSinceLastSeen.ToMiniString(),
                                             info.Name);
+<<<<<<< HEAD
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
+=======
 >>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
                         }
                     }
@@ -1507,15 +1618,21 @@ namespace fCraft
             Process.GetCurrentProcess().Refresh();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             player.Message( "Server's name: " + ConfigKey.ServerName.GetString());
             player.Message( "Server's status: Up for {0:0.0} hours, using {1:0} MB",
                             DateTime.UtcNow.Subtract( Server.StartTime ).TotalHours,
                             ( Process.GetCurrentProcess().PrivateMemorySize64 / ( 1024 * 1024 ) ) );
 =======
+=======
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
             player.Message("Server's name: " + ConfigKey.ServerName.GetString());
             player.Message("Server's status: Up for {0:0.0} hours with {1:0} MB allocated",
                             DateTime.UtcNow.Subtract(Server.StartTime).TotalHours,
                             (Process.GetCurrentProcess().PrivateMemorySize64 / (1024 * 1024)));
+<<<<<<< HEAD
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
+=======
 >>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
 
             if (Server.IsMonitoringCPUUsage)
@@ -1561,9 +1678,15 @@ namespace fCraft
             player.Message("  There are {0} worlds available ({1} loaded, {2} hidden).",
                             WorldManager.Worlds.Length,
 <<<<<<< HEAD
+<<<<<<< HEAD
                             WorldManager.CountLoadedWorlds( player ),
                             WorldManager.Worlds.Count( w => w.IsHidden ) );
             player.Message( "  Developers:&1 Predator121, imjonnyboy.");
+=======
+                            WorldManager.CountLoadedWorlds(player),
+                            WorldManager.Worlds.Count(w => w.IsHidden));
+            player.Message("  Developers:&1 Predator121, imjonnyboy.");
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
 =======
                             WorldManager.CountLoadedWorlds(player),
                             WorldManager.Worlds.Count(w => w.IsHidden));
@@ -2228,6 +2351,7 @@ namespace fCraft
         }
 
         #endregion
+<<<<<<< HEAD
 
         #region LastCMD
         // LastCMD made by imjonnyboy & Hellenion
@@ -2340,6 +2464,24 @@ namespace fCraft
             Handler = LastCMDHandler
         };
 
+=======
+
+        #region LastCMD
+        // LastCMD made by imjonnyboy & Hellenion
+        static readonly CommandDescriptor CdLastCMD = new CommandDescriptor
+        {
+            Name = "LastCMD",
+            Aliases = new[] { "LastCMD, CMD" },
+            Category = CommandCategory.Info | CommandCategory.Chat,
+            Permissions = new[] { Permission.ManageWorlds },
+            IsConsoleSafe = false,
+            UsableByFrozenPlayers = true,
+            Help = "Shows the last 20 commands used. " +
+                   "Usage &H/LastCMD&S All | (playername)",
+            Handler = LastCMDHandler
+        };
+
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
         static void LastCMDHandler(Player player, Command cmd)
         {
             if (!cmd.HasNext)
@@ -2349,7 +2491,11 @@ namespace fCraft
                     player.Message("You have not executed any commands yet");
                     return;
                 }
+<<<<<<< HEAD
                 player.Message("Your last {0} Commands were:", player.LastCMD.Count);
+=======
+                player.Message( "Your last {0} Commands were:", player.LastCMD.Count);
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
                 foreach (Command lastcmd in player.LastCMD)
                 {
                     player.Message("&H{0}", lastcmd.RawMessage);
@@ -2378,7 +2524,11 @@ namespace fCraft
                     {
                         PlayerInfo target = PlayerDB.FindPlayerInfoOrPrintMatches(player, targetName);
                         if (target == null) return;
+<<<<<<< HEAD
                         if (target.PlayerObject == null)
+=======
+                        if (target.PlayerObject == null) 
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
                         {
                             player.Message("{0}&S is offline", target.DisplayedName ?? target.ClassyName);
                             return;
@@ -2390,6 +2540,7 @@ namespace fCraft
                         }
                         player.Message("{0}&S's last {1} commands were:", target.DisplayedName ?? target.ClassyName, target.PlayerObject.LastCMD.Count);
                         foreach (Command lastcmd in target.PlayerObject.LastCMD)
+<<<<<<< HEAD
                         {
                             player.Message("&H{0}", lastcmd.RawMessage);
                         }
@@ -2414,12 +2565,43 @@ namespace fCraft
             Server.LastCMD.Enqueue(String.Format("&S<{0}&S>&H {1}", player.Info.DisplayedName ?? player.Info.ClassyName, e.Command.RawMessage));
 
 
+=======
+
+                        {
+                            player.Message("&H{0}", lastcmd.RawMessage);
+                        }
+                    }
+                 
+                }
+            }
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
         }
 
+        static void CommandCalledHandler( object sender, CommandCalledEventArgs e )
+            {
+            Player player = e.Player;
+            if( player.LastCMD.Count > 19 )
+            {
+            player.LastCMD.Dequeue();
+            }
+            player.LastCMD.Enqueue(e.Command);
+            if (Server.LastCMD.Count > 19)
+            {
+                Server.LastCMD.Dequeue();
+            }
+            Server.LastCMD.Enqueue( String.Format( "&S<{0}&S>&H {1}", player.Info.DisplayedName ?? player.Info.ClassyName, e.Command.RawMessage ));
+
+
+        }
+        
         #endregion
          */
 
+<<<<<<< HEAD
         /*#region Devs
+=======
+        #region Devs
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
 =======
         #region Devs
 >>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
@@ -2439,6 +2621,7 @@ namespace fCraft
         static void DevsHandler(Player player, Command cmd)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             player.Message("&6My&8Craft&S is developed by &9Pre&fda&9tor&f121&S and %fim%9jonny%fboy.");
             player.Message("&6My&8Craft&S is based on &c800&9Craft&S.");
             player.Message("&eVisit &1MyCraft-Public.tk&e for more information.");
@@ -2447,12 +2630,17 @@ namespace fCraft
         #endregion*/
 
 =======
+=======
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
             player.Message("&6My&8Craft is developed by &9Pre&fda&9tor&f121&e and &fim&9jonny&fboy&e.");
             player.Message("&6My&8Craft&e is based on &c800&9Craft&e.");
             player.Message("&eVisit &1MyCraft-Public.tk&e for more information.");
             return;
         }
         #endregion
+<<<<<<< HEAD
+>>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
+=======
 >>>>>>> a9bbe866c3a188abb511d632384bd57e91cbe208
 
 #if DEBUG_SCHEDULER
