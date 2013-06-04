@@ -55,6 +55,7 @@ namespace fCraft {
             CommandManager.RegisterCommand( CdPhysics );
             CommandManager.RegisterCommand( CdWorldSet );
             CommandManager.RegisterCommand( CdMessageBlock );
+            //CommandManager.RegisterCommand(CdGuestwipe);
         }
         #region 800Craft
 

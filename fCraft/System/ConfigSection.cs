@@ -1,8 +1,10 @@
 ﻿// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
 
-namespace fCraft {
+namespace fCraft
+{
     /// <summary> ConfigKey section/category. </summary>
-    public enum ConfigSection {
+    public enum ConfigSection
+    {
 
         /// <summary> General server configuration (name, port, default rank, etc). </summary>
         General,
@@ -26,6 +28,9 @@ namespace fCraft {
         IRC,
 
         /// <summary> Advanced configuration (performance adjustments, protocol tweaks, experimental features, etc). </summary>
-        Advanced
+        Advanced,
+
+        /// <summary> Economy Stuffs </summary>
+        Econ
     }
 }

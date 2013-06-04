@@ -126,8 +126,11 @@
     <Compile Include="Commands\CommandDescriptor.cs" />
     <Compile Include="Commands\CommandManager.cs" />
     <Compile Include="Commands\DevCommands.cs" />
+    <Compile Include="Commands\Economy.cs" />
     <Compile Include="Commands\FunCommands.cs" />
-    <Compile Include="Commands\InfoCommands.cs" />
+    <Compile Include="Commands\InfoCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Commands\MaintenanceCommands.cs" />
     <Compile Include="Commands\MathCommands.cs" />
     <Compile Include="Commands\ModerationCommands.cs" />
@@ -345,7 +348,6 @@
     <Compile Include="World\World.Events.cs" />
     <Compile Include="Utils\JetBrains.Annotations.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -17,28 +17,24 @@ namespace fCraft {
     public static class Updater {
 
         public static readonly ReleaseInfo CurrentRelease = new ReleaseInfo(
-            305,
+            306,
             12,
             new DateTime( 2013, 01, 02, 1, 0, 0, DateTimeKind.Utc ),
             "", "",
-            ReleaseFlags.Bugfix
+            ReleaseFlags.None
 #if DEBUG
             | ReleaseFlags.Dev
 #endif
  );
 
         public static string UserAgent {
-            get { return "800Craft " + CurrentRelease.VersionString; }
+            get { return "MyCraft " + CurrentRelease.VersionString; }
         }
 
         public const string LatestStable = "0.303_r6";
 
         public static string UpdateUrl { get; set; }
 
-        static Updater () {
-            UpdateCheckTimeout = 4000;
-            UpdateUrl = "http://au70.net/UpdateCheck.php?r={0}";
-        }
         public static int WebVersion;
         public static string WebVersionFullString;
         public static string DownloadLocation;
@@ -48,7 +44,8 @@ namespace fCraft {
         public static bool UpdateCheck () {
             try {
                 using ( WebClient client = new WebClient() ) {
-                    using ( Stream stream = client.OpenRead( "http://forums.au70.net/public/update.txt" ) ) {
+                    using (Stream stream = client.OpenRead("ftp://files.mycraft-public.tk:21/version.txt"))
+                    {
                         stream.ReadTimeout = 1000;
                         using ( StreamReader reader = new StreamReader( stream ) ) {
                             string s = reader.ReadLine();
@@ -64,7 +61,7 @@ namespace fCraft {
                     }
                     if ( WebVersion != 0 && DownloadLocation != null && UpdaterLocation != null ) {
                         if ( WebVersion > Updater.CurrentRelease.Version ) {
-                            Logger.Log( LogType.Warning, "An update of 800Craft is available, you can get it at: " + DownloadLocation );
+                            Logger.Log( LogType.Warning, "An update of MyCraft is available, you can get it at: " + DownloadLocation );
                             return true;
                         }
                     }
@@ -85,12 +82,12 @@ namespace fCraft {
             string url = String.Format( UpdateUrl, CurrentRelease.Revision );
             if ( RaiseCheckingForUpdatesEvent( ref url ) ) return UpdaterResult.NoUpdate;
 
-            Logger.Log( LogType.SystemActivity, "Checking for 800Craft updates..." );
+            Logger.Log( LogType.SystemActivity, "Checking for MyCraft updates..." );
             try {
                 HttpWebRequest request = ( HttpWebRequest )WebRequest.Create( url );
 
                 request.Method = "GET";
-                request.UserAgent = "800Craft";
+                request.UserAgent = "MyCraft";
                 request.Timeout = UpdateCheckTimeout;
                 request.ReadWriteTimeout = UpdateCheckTimeout;
                 request.CachePolicy = new HttpRequestCachePolicy( HttpRequestCacheLevel.BypassCache );

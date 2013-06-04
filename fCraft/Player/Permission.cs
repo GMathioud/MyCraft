@@ -1,12 +1,14 @@
 ﻿// Copyright 2009-2013 Matvei Stefarov <me@matvei.org>
 
-namespace fCraft {
+namespace fCraft
+{
 
     // See comment at the top of Config.cs for a history of changes.
 
     /// <summary> Enumeration of permission types/categories.
     /// Every rank definition contains a combination of these. </summary>
-    public enum Permission {
+    public enum Permission
+    {
         /// <summary> Ability to chat and to PM players.
         /// Note that players without this permission can still
         /// type in commands, receive PMs, and read chat. </summary>
@@ -242,8 +244,33 @@ namespace fCraft {
         /// <summary> Permission to create a server-wide silence, muting all players, and to voice players while the moderation is in affect. </summary>
         Moderation,
 
-        /// <summary> Allows a player to become immortal, immune to all damage </summary>
-        Immortal
+        /// <summary> Allows a player to become immortal, immune to all damage. </summary>
+        Immortal,
+
+        ///<summary>Permission to use LegendCraft Economy</summary>
+        Economy,
+
+        ///<summary>Permission to manage the economy. (Use /give and /take)</summary>
+        ManageEconomy,
+
+        ///<summary>Permission for player to give themselves money.</summary>
+        GiveSelf,
+
+        ///<summary> Permission to read modreq. </summary>
+        /* ReadModreq,
+
+         ///<summary> permission to send modreq </summary>
+
+         SendModreq,
+
+         /// <summary> Has the right to clear modreq. </summary>
+         ClearModreq,
+
+         /// <summary> Has the right to send instant modreqest </summary>
+
+         SendInstantModreq,
+
+         HasSentModreq */
 
     }
 }

@@ -80,7 +80,8 @@ namespace fCraft
                 Logger.Log(LogType.UserActivity,
                             "{0} loaded new map for realm \"{1}\" from {2}",
                             player.Name, realm.Name, fileName);
-                realm.IsHidden = false;
+                // Hiding the realm from the WorldList.
+                realm.IsHidden = true;
                 realm.IsRealm = true;
                 WorldManager.SaveWorldList();
             }
@@ -146,7 +147,7 @@ namespace fCraft
                         try
                         {
                             map = MapUtility.Load(fullFileName);
-                            realm.IsHidden = false;
+                            realm.IsHidden = true;
                             realm.IsRealm = true;
                             WorldManager.SaveWorldList();
                         }
@@ -160,7 +161,8 @@ namespace fCraft
                         {
                             realm.MapChangedBy = player.Name;
                             realm.ChangeMap(map);
-                            realm.IsHidden = false;
+                            // Hiding the realm from the WorldList.
+                            realm.IsHidden = true;
                             realm.IsRealm = true;
                             WorldManager.SaveWorldList();
                         }

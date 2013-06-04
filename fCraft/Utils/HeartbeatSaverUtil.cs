@@ -33,7 +33,7 @@ namespace fCraft
         {
             if (e.ShutdownImminent.Equals(true))
             {
-                if (ConfigKey.HbSaverKey.Enabled())
+             /* if (ConfigKey.HbSaverKey.Enabled())
                 {
                     if (ConfigKey.HbSaverKey.Enabled())
                     {
@@ -48,7 +48,7 @@ namespace fCraft
                         HeartbeatSaver.StartInfo.FileName = "heartbeatsaver.exe";
                         HeartbeatSaver.Start();
                     }
-                }
+                }*/
             }
         }
     }

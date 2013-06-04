@@ -1,0 +1,11 @@
+MyCraft 0.307 plan:
+
+Feature: Adding GlobalChat.
+Feature: Global announcement on server startup.
+Feature: Adding /Guestwipe.
+Feature: Adding /HasPaid command.
+Optional: Adding /WomCheck (WoM needs to be fixed).
+Feature: Adding /LastCMD.
+Feature: Adding /plugins.
+Optional: Adding /donator.
+Feature: ... suggest something. I have no ideas.

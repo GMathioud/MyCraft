@@ -220,7 +220,7 @@ namespace fCraft {
 #if DEBUG_SCHEDULER
             Logger.Log( LogType.Debug, "Scheduler: BeginShutdown..." );
 #endif
-            if (ConfigKey.HbSaverKey.Enabled())
+           /* if (ConfigKey.HbSaverKey.Enabled())
             {
                 if (!Server.IsRestarting)
                 {
@@ -232,7 +232,7 @@ namespace fCraft {
                             return;
                         }
 
-                        //start the heartbeat saver
+                        //start the MyCraft's HeartBeat Saver (Under Development).
                         Process HeartbeatSaver = new Process();
                         Logger.Log(LogType.SystemActivity, "Starting the HeartBeat Saver");
                         HeartbeatSaver.StartInfo.FileName = "heartbeatsaver.exe";
@@ -245,7 +245,7 @@ namespace fCraft {
                 }
                 else
                     Logger.Log(LogType.SystemActivity, "HeartBeat Saver was not launched");
-            }
+            } */
             lock( TaskListLock ) {
                 foreach( SchedulerTask task in Tasks ) {
                     task.Stop();
