@@ -42,7 +42,7 @@ namespace fCraft {
             CommandManager.RegisterCommand( CdWhoIs );
             //CommandManager.RegisterCommand(CdLastCMD);
             //CommandManager.CommandCalled += CommandCalledHandler;
-            /*CommandManager.RegisterCommand(CdDevs);*/
+            CommandManager.RegisterCommand(CdDevs);
 
 #if DEBUG_SCHEDULER
             CommandManager.RegisterCommand( cdTaskDebug );
@@ -1836,7 +1836,7 @@ namespace fCraft {
         #endregion
          */
 
-        /*#region Devs
+        #region Devs
 
         static readonly CommandDescriptor CdDevs = new CommandDescriptor
         {
@@ -1857,7 +1857,7 @@ namespace fCraft {
             player.Message("&eVisit &1MyCraft-Public.tk&e for more information.");
             return;
         }
-        #endregion*/
+        #endregion
 
 
 #if DEBUG_SCHEDULER
