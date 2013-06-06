@@ -539,7 +539,7 @@ namespace fCraft {
             Player target = info.PlayerObject;
 
             //HasPaid Web Requirements [START].
-           /* string HasPaidSite = "https://minecraft.net/haspaid.jsp?user=" + info.Name;
+            string HasPaidSite = "https://minecraft.net/haspaid.jsp?user=" + info.Name;
             WebRequest HasPaidRequest = WebRequest.Create( HasPaidSite );
             HasPaidRequest.Credentials = CredentialCache.DefaultCredentials;
             WebResponse HasPaidResponse = HasPaidRequest.GetResponse();
@@ -561,7 +561,7 @@ namespace fCraft {
             else
             {
                 HasPaidResponseFromServer = "Unknown";
-            } */
+            }
             //HasPaid Web Requrements [END].
 
             // hide online status when hidden
@@ -584,15 +584,15 @@ namespace fCraft {
                                                 info.ClassyName,
                                                 info.LastIP,
                                                 idle.ToMiniString(),
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             } else {
                                 player.Message("About {0}&S: HIDDEN (idle {1})\n" +
                                     "Username: {2} ({3})",
                                                 info.ClassyName,
                                                 idle.ToMiniString(),
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             }
                         } else {
                             if ( player.Can( Permission.ViewPlayerIPs ) ) {
@@ -600,14 +600,14 @@ namespace fCraft {
                                     "Username: {2} ({3})",
                                                 info.ClassyName,
                                                 info.LastIP,
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             } else {
                                 player.Message( "About {0}&S: HIDDEN.\n" +
                                     "Username: {1} ({2})",
                                                 info.ClassyName,
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             }
                         }
                     } else {
@@ -618,15 +618,15 @@ namespace fCraft {
                                                 info.ClassyName,
                                                 info.LastIP,
                                                 idle.ToMiniString(),
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             } else {
                                 player.Message( "About {0}&S: Online now (idle {1})\n" +
                                     "Username: {2} ({3})",
                                                 info.ClassyName,
                                                 idle.ToMiniString(),
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             }
                         } else {
                             if ( player.Can( Permission.ViewPlayerIPs ) ) {
@@ -634,14 +634,14 @@ namespace fCraft {
                                     "Username: {2} ({3})",
                                                 info.ClassyName,
                                                 info.LastIP,
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             } else {
                                 player.Message( "About {0}&S: Online now.\n" +
                                     "Username: {1} ({2})",
                                                 info.ClassyName,
-                                                info.Name
-                                                /*HasPaidResponseFromServer*/ );
+                                                info.Name,
+                                                HasPaidResponseFromServer );
                             }
                         }
                     }
@@ -654,16 +654,16 @@ namespace fCraft {
                                             info.TimeSinceLastSeen.ToMiniString(),
                                             info.LastIP,
                                             info.LeaveReason,
-                                            info.Name
-                                            /*HasPaidResponseFromServer*/ );
+                                            info.Name,
+                                            HasPaidResponseFromServer );
                         } else {
                             player.Message( "About {0}&S: Last seen {1} ago from {2}.\n" +
                                 "Username: {3} ({4})",
                                             info.ClassyName,
                                             info.TimeSinceLastSeen.ToMiniString(),
                                             info.LastIP,
-                                            info.Name
-                                            /*HasPaidResponseFromServer*/ );
+                                            info.Name,
+                                            HasPaidResponseFromServer );
                         }
                     } else {
                         if ( info.LeaveReason != LeaveReason.Unknown ) {
@@ -672,15 +672,15 @@ namespace fCraft {
                                             info.ClassyName,
                                             info.TimeSinceLastSeen.ToMiniString(),
                                             info.LeaveReason,
-                                            info.Name
-                                            /*HasPaidResponseFromServer*/ );
+                                            info.Name,
+                                            HasPaidResponseFromServer );
                         } else {
                             player.Message( "About {0}&S: Last seen {1} ago.\n" +
                                 "Username: {2} ({3})",
                                             info.ClassyName,
                                             info.TimeSinceLastSeen.ToMiniString(),
-                                            info.Name
-                                            /*HasPaidResponseFromServer*/ );
+                                            info.Name,
+                                            HasPaidResponseFromServer );
                         }
                     }
                 }
