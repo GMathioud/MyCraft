@@ -49,6 +49,7 @@ Removed: Throw (Yes).
 Added: Minecraft Premium status on /info.
 Added: "Banned Player Tried To Connect" announcement switch on Config.
 Added: MyCraft AutoUpdater.
+Added: Lots of. I don't even remember them.
 
 
 
