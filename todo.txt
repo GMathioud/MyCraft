@@ -8,4 +8,10 @@ Optional: Adding /WomCheck (WoM needs to be fixed).
 Feature: Adding /LastCMD.
 Feature: Adding /plugins.
 Optional: Adding /donator.
+Feature: Finish /eRank.
+Feature: Add HeartBeatSender.
+Feature: Add email name on /b.
 Feature: ... suggest something. I have no ideas.
+Feature: Adding /Magma and possibly /togglemagma.
+Feature: Adding Block.Magma.
+Feature: Erm fix economy's stuff.
