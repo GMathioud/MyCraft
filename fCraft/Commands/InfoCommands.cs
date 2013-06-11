@@ -1741,8 +1741,10 @@ namespace fCraft {
 
         #endregion
 
-        /*
-        #region LastCMD
+
+        #region MyCraft
+
+        /*#region LastCMD
         // LastCMD made by imjonnyboy & Hellenion
         static readonly CommandDescriptor CdLastCMD = new CommandDescriptor
         {
@@ -1857,6 +1859,7 @@ namespace fCraft {
             player.Message("&eVisit &1MyCraft-Public.tk&e for more information.");
             return;
         }
+        #endregion
         #endregion
 
 
