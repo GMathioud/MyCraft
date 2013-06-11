@@ -77,6 +77,7 @@ namespace fCraft
             CommandManager.RegisterCommand(CdBalance);
             /*CommandManager.RegisterCommand(CdReport);*/
             /*CommandManager.RegisterCommand(CdReports);*/
+            /*CommandManager.RegisterCommand(CdeRank);*/
         }
         #region 800Craft
 
@@ -3179,6 +3180,127 @@ namespace fCraft
         #endregion
 
 
+        #region Freeze stuff
+        // freeze target if player is allowed to do so
+        static void FreezeIfAllowed(Player player, PlayerInfo targetInfo)
+        {
+            if (targetInfo.IsOnline && !targetInfo.IsFrozen && player.Can(Permission.Freeze, targetInfo.Rank))
+            {
+                try
+                {
+                    targetInfo.Freeze(player, true, true);
+                    player.Message("Player {0}&S has been frozen while you retry.", targetInfo.ClassyName);
+                }
+                catch (PlayerOpException) { }
+            }
+        }
+
+
+        // warn player if others are still online from target's IP
+        static void WarnIfOtherPlayersOnIP(Player player, PlayerInfo targetInfo, Player except)
+        {
+            Player[] otherPlayers = Server.Players.FromIP(targetInfo.LastIP)
+                                                  .Except(except)
+                                                  .ToArray();
+            if (otherPlayers.Length > 0)
+            {
+                player.Message("&WWarning: Other player(s) share IP with {0}&W: {1}",
+                                targetInfo.ClassyName,
+                                otherPlayers.JoinToClassyString());
+            }
+        }
+
+        #endregion
+
+
+        #region MyCraft
+
+        /*#region eRank
+          
+        static readonly CommandDescriptor CdeRank = new CommandDescriptor
+        {
+            Name = "eRank",
+            Aliases = new[] { "epromote", "edemote" },
+            Category = CommandCategory.Moderation,
+            Permissions = new[] { Permission.Promote, Permission.Demote },
+            AnyPermission = true,
+            IsConsoleSafe = true,
+            Usage = "/eRank EmailName RankName [Reason]",
+            Help = "Changes the rank of an email account player to a specified rank. " +
+                   "Any text specified after the RankName will be saved as a memo.",
+            Handler = eRankHandler
+        };
+
+        public static void eRankHandler(Player player, Command cmd)
+        {
+            string name = cmd.Next();
+            string newRankName = cmd.Next();
+
+            // Check arguments
+            if (name == null || newRankName == null)
+            {
+                CdeRank.PrintUsage(player);
+                player.Message("See &H/Ranks&S for list of ranks.");
+                return;
+            }
+
+            // Parse rank name
+            Rank newRank = RankManager.FindRank(newRankName);
+            if (newRank == null)
+            {
+                player.MessageNoRank(newRankName);
+                return;
+            }
+
+            // Parse player name
+            if (name == "-")
+            {
+                if (player.LastUsedPlayerName != null)
+                {
+                    if (!player.LastUsedPlayerName.Contains("@"))
+                    {
+                        player.Message("User is not an email account.");
+                        return;
+                    }                
+                    else
+                    {
+                        name = player.LastUsedPlayerName;
+                    }
+                }
+                else
+                {
+                    player.Message("Cannot repeat player name: you haven't used any names yet.");
+                    return;
+                }
+            }
+            //Crashing. Help please.
+            Player target = Server.FindPlayerOrPrintMatches(player, name, false, true);
+            PlayerInfo targetInfo = PlayerDB.FindPlayerInfoExact(target.Name);
+
+            if (targetInfo == null || target == null)
+            {
+                player.MessageNoPlayer(name);
+            }
+            try
+            {
+                if (!player.LastUsedPlayerName.Contains("@"))
+                {
+                    player.Message("User is not an email account.");
+                    return;
+                }
+                else
+                {
+                    player.LastUsedPlayerName = targetInfo.Name;
+                    targetInfo.ChangeRank(player, newRank, cmd.NextAll(), true, true, false);
+                }
+            }
+            catch (PlayerOpException ex)
+            {
+                player.Message(ex.MessageColored);
+            }
+        }
+        #endregion*/
+        
         /*#region Report
         public static List<String> Reports = new List<String>();
         static readonly CommandDescriptor CdReport = new CommandDescriptor
@@ -3206,29 +3328,29 @@ namespace fCraft
                 player.Message("&eYou must include a reason!");
                 return;
             }*/
-            /*if (targetName == null)
-            {
-                player.Message("&eYou must enter a playername!");
-                return;
-            }
-            if (target == player)
-            {
-                player.Message("you cannot report yourself");
-                return;
-            }
-            if (Reports.Contains(target.Name))
-            {
-                player.Message("&eThat player has already been reported.");
-                return;
-            }
-            else
-            {
-                Reports.Add(target.Name);
-                //Reports.Add("# " + reason + " (" + dt + ")");
-                player.Message("&ePlayer sucesfully reported.");
-                return;
-            }
-        }*/
+        /*if (targetName == null)
+        {
+            player.Message("&eYou must enter a playername!");
+            return;
+        }
+        if (target == player)
+        {
+            player.Message("you cannot report yourself");
+            return;
+        }
+        if (Reports.Contains(target.Name))
+        {
+            player.Message("&eThat player has already been reported.");
+            return;
+        }
+        else
+        {
+            Reports.Add(target.Name);
+            //Reports.Add("# " + reason + " (" + dt + ")");
+            player.Message("&ePlayer sucesfully reported.");
+            return;
+        }
+    }*/
 
         /*static readonly CommandDescriptor CdReports = new CommandDescriptor
         {
@@ -3301,42 +3423,7 @@ namespace fCraft
                     return;
                 }
             }
-        }
-
-        #endregion*/
-
-        #region Freeze stuff
-        // freeze target if player is allowed to do so
-        static void FreezeIfAllowed(Player player, PlayerInfo targetInfo)
-        {
-            if (targetInfo.IsOnline && !targetInfo.IsFrozen && player.Can(Permission.Freeze, targetInfo.Rank))
-            {
-                try
-                {
-                    targetInfo.Freeze(player, true, true);
-                    player.Message("Player {0}&S has been frozen while you retry.", targetInfo.ClassyName);
-                }
-                catch (PlayerOpException) { }
-            }
-        }
-
-
-        // warn player if others are still online from target's IP
-        static void WarnIfOtherPlayersOnIP(Player player, PlayerInfo targetInfo, Player except)
-        {
-            Player[] otherPlayers = Server.Players.FromIP(targetInfo.LastIP)
-                                                  .Except(except)
-                                                  .ToArray();
-            if (otherPlayers.Length > 0)
-            {
-                player.Message("&WWarning: Other player(s) share IP with {0}&W: {1}",
-                                targetInfo.ClassyName,
-                                otherPlayers.JoinToClassyString());
-            }
-        }
-
+        }*/
         #endregion
-
-
     }
 }
