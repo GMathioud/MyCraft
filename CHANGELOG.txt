@@ -1,56 +1,33 @@
 --------------------------------------------------------------------------------
 
-
-
 MyCraft 0.305 (8/4/2013):
-
 Added: Mojang Emails support (Cutting the part of the email).
-
 Added: Dev info on /info (For devs only).
-
 Added: Software Info, developers and Server's Name on /ServerInfo.
-
 Added: Developers have a colorful Inpersonate Name.
-
 Added: IRC chat is now present on Console.
-
 Change: Realms are now hidden from the World List.
-
 Added: "Banned player tried to login." message ingame.
-
 Added: Economy.
-
 Added: Command "LastCMD".
-
 Added: Command "Devs".
-
 Added: Command "ModReq".
-
 Added: Command "Insult".
-
 Added: Command "Throw".
-
 Added: Command "Pay".
-
 Added: Command "Economy".
-
 Added: Command "Store".
-
 Added: Command "Balance".
 Added: Command "Report".
-
 Added: Command "Reports".
 
 MyCraft 0.306 (4/6/2013):
 Removed: "LastCMD" (Fixing).
 Removed: "Reports" (Fixed bugs and now adding reason of report).
 Removed: 800Craft's AutoCrashReporter (MyCraft's one under development).
-Removed: Throw (Yes).
 Added: Minecraft Premium status on /info.
 Added: "Banned Player Tried To Connect" announcement switch on Config.
 Added: MyCraft AutoUpdater.
-Added: Lots of. I don't even remember them.
-
-
+Added: Still adding.
 
 --------------------------------------------------------------------------------
