@@ -256,24 +256,30 @@ namespace fCraft
         ///<summary>Permission for player to give themselves money.</summary>
         GiveSelf,
 
+        ///<summary>Ability to report somebody.</summary>
+        MakeReport,
+
+        ///<summary>Ability to remove a report.</summary>
+        RemoveReport,
+
+        ///<summary>Ability to view reports.</summary>
+        ViewReports,
+
         /*///<summary>Ability to place deadly Magma blocks.</summary>
-        PlaceMagma,*/
+        PlaceMagma,
 
         ///<summary> Permission to read modreq. </summary>
-        /* ReadModreq,
+        ReadModreq,
 
-         ///<summary> permission to send modreq </summary>
+        ///<summary> permission to send modreq </summary>
+        SendModreq,
 
-         SendModreq,
+        /// <summary> Has the right to clear modreq. </summary>
+        ClearModreq,
 
-         /// <summary> Has the right to clear modreq. </summary>
-         ClearModreq,
-
-         /// <summary> Has the right to send instant modreqest </summary>
-
-         SendInstantModreq,
-
-         HasSentModreq */
+        /// <summary> Has the right to send instant modreqest </summary>
+        SendInstantModreq,
+        HasSentModreq */
 
     }
 }

@@ -75,8 +75,7 @@ namespace fCraft
             CommandManager.RegisterCommand(CdEconomy);
             CommandManager.RegisterCommand(CdStore);
             CommandManager.RegisterCommand(CdBalance);
-            /*CommandManager.RegisterCommand(CdReport);*/
-            /*CommandManager.RegisterCommand(CdReports);*/
+            CommandManager.RegisterCommand(CdReport);
             /*CommandManager.RegisterCommand(CdeRank);*/
         }
         #region 800Craft
@@ -3273,7 +3272,7 @@ namespace fCraft
                     return;
                 }
             }
-            //Crashing. Help please.
+            //Crashing. Help please. Nevermind found it. Fixing it on eRank's release.
             Player target = Server.FindPlayerOrPrintMatches(player, name, false, true);
             PlayerInfo targetInfo = PlayerDB.FindPlayerInfoExact(target.Name);
 
@@ -3301,129 +3300,124 @@ namespace fCraft
         }
         #endregion*/
         
-        /*#region Report
+        #region Report
+        //Didn't check if the permission changes work yet.
         public static List<String> Reports = new List<String>();
         static readonly CommandDescriptor CdReport = new CommandDescriptor
         {
             Name = "Report",
             Category = CommandCategory.Chat,
-            Permissions = new[] { Permission.Chat },
+            AnyPermission = true,
             IsConsoleSafe = false,
-            Usage = "&a/Report <player>",
-            Help = "Report a player who has been griefing, etc.",
+            Usage = "&a/Report <option> [playername]",
+            Help = "Report the bad guys who are breaking the rules.",
             Handler = ReportHandler
         };
         static void ReportHandler(Player player, Command cmd)
         {
-            DateTime dt = DateTime.Now;
-            string targetName = cmd.Next();
-            //string reason = cmd.Next();
-            Player target = Server.FindPlayerOrPrintMatches(player, targetName, false, true);
-            if (target == null)
-            {
-                return;
-            }
-            /*if (reason == null)
-            {
-                player.Message("&eYou must include a reason!");
-                return;
-            }*/
-        /*if (targetName == null)
-        {
-            player.Message("&eYou must enter a playername!");
-            return;
-        }
-        if (target == player)
-        {
-            player.Message("you cannot report yourself");
-            return;
-        }
-        if (Reports.Contains(target.Name))
-        {
-            player.Message("&eThat player has already been reported.");
-            return;
-        }
-        else
-        {
-            Reports.Add(target.Name);
-            //Reports.Add("# " + reason + " (" + dt + ")");
-            player.Message("&ePlayer sucesfully reported.");
-            return;
-        }
-    }*/
-
-        /*static readonly CommandDescriptor CdReports = new CommandDescriptor
-        {
-            Name = "Reports",
-            Category = CommandCategory.Chat,
-            Permissions = new[] { Permission.Chat },
-            IsConsoleSafe = false,
-            Usage = "&a/Reports",
-            Help = "View all reports",
-            Handler = ReportsHandler
-        };
-        static void ReportsHandler(Player player, Command cmd)
-        {
             string option = cmd.Next();
-            string playerReport = cmd.Next();
+            string name = cmd.Next();
+            string PrintUsage = "&SAvailable options are: &HList, Add, Remove";
+
             if (option == null)
             {
-                if (Reports.Count() == 0)
-                {
-                    player.Message("&eThere are no reports.");
-                }
-                else
-                {
-                    player.Message("&c====&7Reports&c====");
-                    for (int i = 0; i < Reports.Count; i++)
-                    {
-                        player.Message(Reports[i]);
-                    }
-                }
+                player.Message("Please choose an option");
+                player.Message(PrintUsage);
+                return;
             }
-            else if (option == "remove")
+            if (option.ToLower() == "add")
             {
-                Player target = Server.FindPlayerOrPrintMatches(player, playerReport, false, true);
-                if (player.Can(Permission.Ban))
+                if (!player.Can(Permission.MakeReport))
                 {
-                    if (target == player)
-                    {
-                        player.Message("&SYou cannot report yourself.");
-                        return;
-                    }
-                    if (playerReport == null)
-                    {
-                        player.Message("&SYou must enter a name to remove");
-                        return;
-                    }
-                    if (target == null)
-                    {
-                        return;
-                    }
-                    else if (!Reports.Contains(target.Name))
-                    {
-                        player.Message(target.Name + "&S could not be found");
-                        return;
-                    }
-                    else if (Reports.Contains(target.Name))
-                    {
-                        Reports.Remove(target.Name);
-                        player.Message(target.Name + "&S was removed from the reports list");
-                        return;
-                    }
-                    else
-                    {
-                        CdReports.PrintUsage(player);
-                        return;
-                    }
+                    player.MessageNoAccess(Permission.MakeReport);
+                    return;
+                }
+                if (name == null)
+                {
+                    player.Message("Please enter a name to report.");
+                    return;
+                }
+                PlayerInfo target = PlayerDB.FindPlayerInfoOrPrintMatches(player, name);
+                if (target == null) return;
+                if (target.Name == player.Name)
+                {
+                    player.Message("You cannot report yourself.");
+                    return;
+                }
+                if (!Reports.Contains(target.Name))
+                {
+                    Reports.Add(target.Name);
+                    player.Message("Successfully reported {0}", target.ClassyName);
+                    Server.Players.Except(player).Message("{0}&S has been reported by {1}", target.ClassyName, player.ClassyName);
+                    return;
                 }
                 else
                 {
-                    player.Message("&SYou are not allowed to use this commmand.");
+                    player.Message("This player has already been reported.");
                     return;
                 }
             }
-        }*/
+            else if (option.ToLower() == "remove")
+            {
+                if (!player.Can(Permission.RemoveReport))
+                {
+                    player.MessageNoAccess(Permission.RemoveReport);
+                    return;
+                }
+                if (name == null)
+                {
+                    player.Message("Please enter a name to remove.");
+                    return;
+                }
+                PlayerInfo target = PlayerDB.FindPlayerInfoOrPrintMatches(player, name);
+                if (target == null) return;
+                if (target.Name == player.Name)
+                {
+                    player.Message("You cannot report yourself.");
+                    return;
+                }
+                if (Reports.Contains(target.Name))
+                {
+                    Reports.Remove(target.Name);
+                    player.Message("Successfully removed {0}", target.ClassyName);
+                    Server.Players.Except(player).Message("{0}&S has been removed from the report list by {1}", target.ClassyName, player.ClassyName);
+                    return;
+                }
+                else
+                {
+                    player.Message("This player has not been reported.");
+                    return;
+                }
+            }
+            else if (option.ToLower() == "list")
+            {
+                if (!player.Can(Permission.ViewReports))
+                {
+                    player.MessageNoAccess(Permission.ViewReports);
+                    return;
+                }
+                if (Reports.Count != 0)
+                {
+                    player.Message("&S--------&cReports&S--------");
+                    foreach (string ReportedPlayers in Reports)
+                    {
+                        player.Message("&c-&S {0}", ReportedPlayers);
+                    }
+                    player.Message("&S-----&cEnd of Reports&S-----");
+                }
+                else
+                {
+                    player.Message("There are no reports.");
+                    return;
+                }
+            }
+            else
+            {
+                player.Message(PrintUsage);
+                return;
+            }
+        }
         #endregion
     }
+    #endregion
 }
