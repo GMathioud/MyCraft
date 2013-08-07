@@ -1462,12 +1462,7 @@ namespace fCraft
                 result = CanPlaceResult.BlocktypeDenied;
                 goto eventCheck;
             }
-            //else if ((newBlock == Block.Lava || newBlock == Block.StillLava) && !Can(Permission.PlaceLava))
-            //{
-                //result = CanPlaceResult.BlocktypeDenied;
-                //goto eventCheck;
-            //}
-            else if ((newBlock == Block.Lava || newBlock == Block.Magma) && !Can(Permission.PlaceMagma))
+            else if ((newBlock == Block.Lava || newBlock == Block.StillLava) && !Can(Permission.PlaceLava))
             {
                 result = CanPlaceResult.BlocktypeDenied;
                 goto eventCheck;

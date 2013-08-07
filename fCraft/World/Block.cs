@@ -17,7 +17,7 @@ namespace fCraft {
         StillWater = 9,
         Lava = 10,
         //StillLava = 11,
-        Magma = 11,
+        StillLava = 11,
         Sand = 12,
         Gravel = 13,
         GoldOre = 14,

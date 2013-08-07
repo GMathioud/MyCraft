@@ -14,7 +14,7 @@ namespace fCraft.MapConversion {
             // 0-49 default
             Mapping[50] = (byte)Block.TNT;          // Torch
             //Mapping[51] = (byte)Block.StillLava;    // Fire
-            Mapping[51] = (byte)Block.Magma;
+            Mapping[51] = (byte)Block.StillLava;
             Mapping[52] = (byte)Block.Blue;         // Water Source
             Mapping[53] = (byte)Block.Red;          // Lava Source
             Mapping[54] = (byte)Block.TNT;          // Chest
@@ -26,7 +26,7 @@ namespace fCraft.MapConversion {
             Mapping[60] = (byte)Block.Obsidian;     // Soil
             Mapping[61] = (byte)Block.Cobblestone;        // Furnace
             //Mapping[62] = (byte)Block.StillLava;// Burning Furnace
-            Mapping[62] = (byte)Block.Magma;
+            Mapping[62] = (byte)Block.StillLava;
             // 63-199 unused
             Mapping[200] = (byte)Block.Lava;        // Kill Lava
             Mapping[201] = (byte)Block.Stone;       // Kill Lava

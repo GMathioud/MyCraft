@@ -2695,14 +2695,14 @@ namespace fCraft {
 
         static void MagmaHandler(Player player, Command cmd)
         {
-            if (player.GetBind(Block.Orange) == Block.Magma)
+            if (player.GetBind(Block.Orange) == Block.StillLava)
             {
                 player.ResetBind(Block.Orange);
                 player.Message("Magna: OFF");
             }
             else
             {
-                player.Bind(Block.Orange, Block.Magma);
+                player.Bind(Block.Orange, Block.StillLava);
                 player.Message("Magma: ON. Orange blocks are replaced with magma.");
             }
         }*/

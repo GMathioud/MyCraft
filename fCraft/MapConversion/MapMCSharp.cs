@@ -108,7 +108,7 @@ namespace fCraft.MapConversion {
             Mapping[193] = (byte)Block.Water;       // activedeathwater
             Mapping[194] = (byte)Block.Lava;        // activedeathlava
 
-            Mapping[195] = (byte)Block.Lava;        // magma
+            Mapping[195] = (byte)Block.Lava;        // lava
             Mapping[196] = (byte)Block.Water;       // geyser
 
             // 197-210 = air

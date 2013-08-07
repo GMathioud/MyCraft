@@ -231,7 +231,7 @@ namespace fCraft
                 && e.NewBlock != Block.Air
                 && e.NewBlock != Block.Water
                 && e.NewBlock != Block.Lava
-                && e.NewBlock != Block.Magma
+                && e.NewBlock != Block.StillLava
                 && e.NewBlock != Block.BrownMushroom
                 && e.NewBlock != Block.RedFlower
                 && e.NewBlock != Block.RedMushroom
@@ -273,7 +273,7 @@ namespace fCraft
                 case Block.Lava:
                 case Block.StillWater:
                 //case Block.StillLava:
-                case Block.Magma:
+                case Block.StillLava:
                     return true;
                 default:
                     return false;
