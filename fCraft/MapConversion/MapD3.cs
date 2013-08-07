@@ -13,7 +13,8 @@ namespace fCraft.MapConversion {
         static MapD3() {
             // 0-49 default
             Mapping[50] = (byte)Block.TNT;          // Torch
-            Mapping[51] = (byte)Block.StillLava;    // Fire
+            //Mapping[51] = (byte)Block.StillLava;    // Fire
+            Mapping[51] = (byte)Block.Magma;
             Mapping[52] = (byte)Block.Blue;         // Water Source
             Mapping[53] = (byte)Block.Red;          // Lava Source
             Mapping[54] = (byte)Block.TNT;          // Chest
@@ -24,7 +25,8 @@ namespace fCraft.MapConversion {
             Mapping[59] = (byte)Block.Leaves;       // Crops
             Mapping[60] = (byte)Block.Obsidian;     // Soil
             Mapping[61] = (byte)Block.Cobblestone;        // Furnace
-            Mapping[62] = (byte)Block.StillLava;    // Burning Furnace
+            //Mapping[62] = (byte)Block.StillLava;// Burning Furnace
+            Mapping[62] = (byte)Block.Magma;
             // 63-199 unused
             Mapping[200] = (byte)Block.Lava;        // Kill Lava
             Mapping[201] = (byte)Block.Stone;       // Kill Lava
@@ -116,7 +118,7 @@ namespace fCraft.MapConversion {
             }
         }
 
-
+        
         static Map LoadHeaderInternal( Stream stream ) {
             if( stream == null ) throw new ArgumentNullException( "stream" );
             // Setup a GZipStream to decompress and read the map file

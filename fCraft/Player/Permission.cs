@@ -256,6 +256,9 @@ namespace fCraft
         ///<summary>Permission for player to give themselves money.</summary>
         GiveSelf,
 
+        ///<summary>Ability to place deadly Magma blocks.</summary>
+        PlaceMagma,
+
         ///<summary> Permission to read modreq. </summary>
         /* ReadModreq,
 

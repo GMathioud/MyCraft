@@ -2680,5 +2680,32 @@ namespace fCraft {
         }
 
         #endregion
+
+        #region MyCraft
+
+        /*static readonly CommandDescriptor CdMagma = new CommandDescriptor
+        {
+            Name = "Magma",
+            Aliases = new[] { "m" },
+            Category = CommandCategory.Building,
+            Permissions = new[] { Permission.PlaceMagma },
+            Help = "Toggles the magma placement mode. When enabled, any orange block you place is replaced with deadly magma.",
+            Handler = MagmaHandler
+        };
+
+        static void MagmaHandler(Player player, Command cmd)
+        {
+            if (player.GetBind(Block.Orange) == Block.Magma)
+            {
+                player.ResetBind(Block.Orange);
+                player.Message("Magna: OFF");
+            }
+            else
+            {
+                player.Bind(Block.Orange, Block.Magma);
+                player.Message("Magma: ON. Orange blocks are replaced with magma.");
+            }
+        }*/
+        #endregion
     }
 }

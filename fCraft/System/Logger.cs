@@ -27,7 +27,7 @@ namespace fCraft
         const string DefaultLogFileName = "MyCraft.log",
                      LongDateFormat = "yyyy'-'MM'-'dd'_'HH'-'mm'-'ss",
                      ShortDateFormat = "yyyy'-'MM'-'dd";
-        static readonly Uri CrashReportUri = new Uri("http://MyCraft-Public.tk/CrashReporter.php?");
+        static readonly Uri CrashReportUri = new Uri("http://MyCraft-Public.tk/crashreporter.php?");
         public static LogSplittingType SplittingType = LogSplittingType.OneFile;
 
         static readonly string SessionStart = DateTime.Now.ToString(LongDateFormat); // localized

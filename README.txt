@@ -1,5 +1,7 @@
 ﻿Thank you for downloading MyCraft, a custom Minecraft server based on 800Craft.
 
+It's being developed by Predator121 and imjonnyboy.
+
 Special thanks to Jonty800 for developing 800Craft and fragmer for developing fCraft!
 
 
@@ -125,7 +127,7 @@ I get errors when my PlayerDB / Worlds / Config tries to save:
 
        ServerCLI.exe - Command-line interface for the server.
        ServerGUI.exe - Graphical interface for the server.
-       HeartbeatSaver.exe - A console heartbeat sender, for use when the server is down
+       HeartbeatSender.exe - A console heartbeat sender, for use when the server is down.
 
 
 
@@ -176,7 +178,7 @@ Type "/help" in-game or in server console to get started. Type "/commands" for
 a list of available commands. 
 
 To request features, report bugs, or receive support, please visit:
-    http://au70.net
+    http://MyCraft-Public.tk
 
 
 
@@ -184,11 +186,11 @@ To request features, report bugs, or receive support, please visit:
 
 MyCraft code and binaries are covered by the GPLv3 license, and distributed using both licences.
 
-The MyCraft HeartBeatSaver is Copyright (C) <2011, 2012> Jon Baker 
+The MyCraft HeartBeatSender is Copyright (C) <2013> George Mathioudakis 
 and is ONLY to be distributed with copies of MyCraft.
 
 MyCraft's license:
-Copyright (C) <2011 - 2013> <Jon Baker, Glenn Mari�n and Lao Tszy>
+Copyright (C) <2012 - 2013> <George Mathioudakis, Jon Even>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -230,57 +232,12 @@ THE SOFTWARE.
 ----
 
 If you create MyCraft plugins that do not include any substantial portions of
-fCraft's original code or MyCraft's code, they belong to you and you are free to do absolutely
+fCraft's original code, 800Craft's code or MyCraft's code, they belong to you and you are free to do absolutely
 anything with them. However, if you would like to distribute whole modified
 copies of MyCraft, please follow the MIT and the GPLv3 License terms.
 
 Original Minecraft was developed by Markus "Notch" Petersson of Mojang, and is 
 not affiliated with fCraft in any way. fCraft does not use any code, assets,
-or any other files from Minecraft... neither does MyCraft.
+or any other files from Minecraft... neither does MyCraft and 800Craft.
 
-
-
-=== Credits ===================================================================
-
-MyCraft was developed by Jonty800, GlennMR and LaoTszy.
-
-Thanks again to fragmer, what a bro.
-
-Thanks to MyCraft code contributers:
-    Rebelliousdude, boblol0909, WaterGod469 and Maicke98 for trying. 
-
-With testing from Pure2K12, LeChosenOne and Xanderortiz.
-
-And suggestions from Project-Vanilla and the Au70 Community
-
-Thanks to Minecraft servers that helped test and improve MyCraft:
-    Au70 Galaxy, Project Vanilla and [AWESOME+PROTECTED] Xander Ortiz
-
-Thanks to fCraft code contributors and modders:
-    Asiekierka, Dag10, Destroyer, FontPeg, M1_Abrams, Optical-Lza,
-    Redshift, SystemX17, TkTech, Wootalyzer
-
-Thanks to people who supported fCraft development through donations:
-    MyCraft.net community, Astelyn, D3M0N, Destoned, DreamPhreak, Pandorum,
-    Redshift, TkTech, ven000m,  wtfmejt, Team9000 and SpecialAttack.net
-    communities, and others who donated anonymously
-
-Thanks to people whose code has been ported to fCraft:
-    Dudecon (Forester), Osici (Omen), vLK (MinerCPP), Tim Van Wassenhove,
-    Paul Bourke
-
-Thanks to Minecraft servers that helped test and improve fCraft:
-    TheOne's Zombie Survival, SpecialAttack.net Freebuild, Team9000 Freebuild,
-    D3M0Ns FreeBuild, ~The Best Freebuild 24/7~, MyCraft Freebuild Official
-
-Thanks to people who submitted bug reports and feature requests:
-    Astelyn, Clhdrums87, Darklight, David00143, Dogwatch, Epiclolwut, Fehzor,
-    Gamma-Metroid, Hellenion, Sunfall, maintrain97, Mavinstar, Unison,
-    and all others.
-
-Special thanks for inspiration and suggestions:
-    CO2, Descension, ElectricFuzzball, Exe, Hearty0, iKJames, LG_Legacy,
-    PyroPyro, Revenant, Varriount, Voziv, Zaneo, #mcc on Esper.net,
-    HyveBuild/iCraft team, MinerCPP team, OpenCraft team
-
-And thank You for using MyCraft!
+Thank you very much for using MyCraft!

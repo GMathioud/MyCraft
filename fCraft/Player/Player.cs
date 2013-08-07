@@ -1462,12 +1462,16 @@ namespace fCraft
                 result = CanPlaceResult.BlocktypeDenied;
                 goto eventCheck;
             }
-            else if ((newBlock == Block.Lava || newBlock == Block.StillLava) && !Can(Permission.PlaceLava))
+            //else if ((newBlock == Block.Lava || newBlock == Block.StillLava) && !Can(Permission.PlaceLava))
+            //{
+                //result = CanPlaceResult.BlocktypeDenied;
+                //goto eventCheck;
+            //}
+            else if ((newBlock == Block.Lava || newBlock == Block.Magma) && !Can(Permission.PlaceMagma))
             {
                 result = CanPlaceResult.BlocktypeDenied;
                 goto eventCheck;
             }
-
             // check admincrete-related permissions
             if (oldBlock == Block.Admincrete && !Can(Permission.DeleteAdmincrete))
             {

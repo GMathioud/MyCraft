@@ -220,12 +220,12 @@ Your rank is {RANK}&S. Type &H/Help&S for help.");
 
         private void bOpenWiki_Click(object sender, EventArgs e)
         {
-            Process.Start("http://www.minecraftwiki.net/wiki/Custom_servers/800Craft");
+            Process.Start("http://www.minecraftwiki.net/wiki/Custom_servers/");
         }
 
         private void bReportABug_Click(object sender, EventArgs e)
         {
-            Process.Start("http://800Craft.net/community/index.php?/tracker/");
+            Process.Start("http://MyCraft-Public.tk");
         }
 
         private void nMaxPlayerPerWorld_Validating(object sender, CancelEventArgs e)
