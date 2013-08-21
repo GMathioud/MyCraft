@@ -541,7 +541,6 @@ namespace fCraft {
             //HasPaid Web Requirements [START].
             string HasPaidSite = "https://minecraft.net/haspaid.jsp?user=" + info.Name;
             WebRequest HasPaidRequest = WebRequest.Create( HasPaidSite );
-            HasPaidRequest.Credentials = CredentialCache.DefaultCredentials;
             WebResponse HasPaidResponse = HasPaidRequest.GetResponse();
             Stream HasPaidReader = HasPaidResponse.GetResponseStream();
             StreamReader HasPaidResults = new StreamReader( HasPaidReader );
@@ -562,7 +561,7 @@ namespace fCraft {
             {
                 HasPaidResponseFromServer = "Unknown";
             }
-            //HasPaid Web Requrements [END].
+            //HasPaid Web Requirements [END].
 
             // hide online status when hidden
             if ( target != null && !player.CanSee( target ) ) {
