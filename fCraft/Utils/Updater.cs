@@ -50,10 +50,10 @@ namespace fCraft
             {
                 using (WebClient client = new WebClient())
                 {
-                    using (Stream stream = client.OpenRead("http://google.com")) //Too lazy to mark the whole code as "comment".
+                    using (Stream stream = client.OpenRead("http://mycraft-public.tk/software/version.txt"))
                     {
                         stream.ReadTimeout = 1000;
-                        /*using (StreamReader reader = new StreamReader(stream))
+                        using (StreamReader reader = new StreamReader(stream))
                         {
                             string s = reader.ReadLine();
                             if (!int.TryParse(s.Replace(".", ""), out WebVersion))
@@ -65,7 +65,7 @@ namespace fCraft
                             DownloadLocation = reader.ReadLine();
                             UpdaterLocation = reader.ReadLine();
                             Changelog = reader.ReadToEnd();
-                        }*/
+                        }
                     }
                     if (WebVersion != 0 && DownloadLocation != null && UpdaterLocation != null)
                     {
